@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Harrison Traue
 
   Learning Intention:
   The students will learn how to wire a variable resistor as a pseudo sensor and read analogue
@@ -23,10 +23,12 @@
 
 
 void setup() {
-  
+  Serial.begin(9600);
+  Serial.println("Debuged");
+
 }
 
 void loop() {
-  
+  Serial.println(analogRead(A3));
 }
 
