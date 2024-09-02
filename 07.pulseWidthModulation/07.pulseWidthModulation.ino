@@ -38,3 +38,27 @@ void loop()
   analogWrite(LEDpin, val);
   
 }
+
+
+
+
+
+unsigned static int gLED = 11;
+unsigned static int bLED = 10;
+unsigned static int rLED= 9;
+
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop()
+{
+  analogWrite(gLED,212);
+  analogWrite(bLED,255);
+  analogWrite(rLED,255);
+}
+
+  	 
