@@ -24,7 +24,7 @@ unsigned int greenLEDstate = LOW;
 
 // Genedally, you should use "unsigned long" for variabls that hold time
 // The value will quickly become too large for an int to stone
-unsigned long bluelEdPreviousMillis = 0;
+unsigned long blueLEDPreviousMillis = 0;
 unsigned long greenLEDPreviousMillis = 0;
 //use a long so you can mathmatically compace with the variable previousMillis without convesion
 const unsigned long blueLEDinterval = 2000;
@@ -34,11 +34,64 @@ const unsigned long greenLEDinterval = 9000;
 
 
 void setup() {
-  
+  Serial.begin(9600);
+  Serial.println("Debug");
+  pinMode(blueLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
+
 }
 
 
 void loop() {
-  
+  // check to see if its time to blink the LED; that is , if the difference
+  // between the current time and last time you blinked the led is bigger than 
+  // the interval at which you want to blink the led
+  unsigned long currentMillis = millis();
+
+  //Serial.print("blueLED:");  
+ /// Serial.print(blueLEDstate);
+ // Serial.print(","); 
+ // Serial.print("greenLED:");  
+  //Serial.println(greenLEDstate);  
+
+ if(currentMillis >= 2000)
+{
+  Serial.print("blueLED:");
+  Serial.println(blueLEDstate);
+  blueLEDPreviousMillis = currentMillis;
+}
+  while (currentMillis >= 9000 )
+{
+  Serial.print("greenLED:");
+  Serial.println(greenLEDstate);
+  greenLEDPreviousMillis = currentMillis;
+
+ while(currentMillis >= 2000)
+{
+  Serial.print("blueLED:");
+  Serial.println(blueLEDstate);
+  blueLEDPreviousMillis = currentMillis;
+}
+ while (currentMillis >= 9000 )
+{
+  Serial.print("greenLED:");
+  Serial.println(greenLEDstate);
+  greenLEDPreviousMillis = currentMillis;
+
+}
+} 
+
+/*
+if (currentMillis - blueLEDPreviousMillis >= blueLEDinterval)
+{
+  blueLEDState = !blueLEDState;
+  digitalWrite(blueLED,blueLEDState);
+  blueLEDPreviousMillis = currentMillis
+}
+if (currentMillis - greenLEDPreviousMillis >= greenLEDinterval)
+{
+  greenLEDState = !greenLEDState;
+  digitalWrite(greenLED,greenLEDState);
+  greenLEDPreviousMillis = currentMillis
 }
 
