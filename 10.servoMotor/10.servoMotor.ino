@@ -24,17 +24,16 @@
 
 #include <Servo.h>
 
-Servo mysigma;
+Servo myservo;
 unsigned static int servoPin = 7;
 unsigned static int potpin = A2;
  
 void setup() {
-  mysigma.attach(servoPin);
-  
+  myservo.attach(servoPin);
 }
 
 void loop() {
  int val = analogRead(potpin);
- val = map(val,0, 1023, 0 , 180);
- mysigma.write(val);
+ val = map(val, 0, 1023, 0 , 180);
+ myservo.write(val);
 }
