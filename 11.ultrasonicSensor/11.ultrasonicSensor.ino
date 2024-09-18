@@ -29,24 +29,28 @@
 Servo myservo;
 Ultrasonic sigma_sensor(5);
 
+unsigned long currentMillis = millis();
 unsigned static int servoPin = 7;
 unsigned static int potpin = A2;
+unsigned static int LEDpin = 8; 
  
 void setup() {
   myservo.attach(servoPin);
   Serial.begin(9600);
+  pinMode(LEDpin, OUTPUT);
 }
 
 void loop() {
   Serial.println(sigma_sensor.distanceRead());
 
+ 
 
- int val = analogRead(potpin);
- val = map(val, 0, 1023, 0 , 180);
- myservo.write(val);
+ 
 
-if (sigma_sensor =< distanceRead(10)){
-  myservo = 180
+if (sigma_sensor.distanceRead() <=10){
+ myservo = 180;
+ 
+ 
 }
 
 

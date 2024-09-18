@@ -50,7 +50,7 @@ void loop() {
 
   //Serial.print("blueLED:");  
  /// Serial.print(blueLEDstate);
- // Serial.print(","); 
+ // Serial.print(",");      
  // Serial.print("greenLED:");  
   //Serial.println(greenLEDstate);  
 
