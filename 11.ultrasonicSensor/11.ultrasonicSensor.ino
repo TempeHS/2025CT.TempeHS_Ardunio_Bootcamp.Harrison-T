@@ -42,16 +42,22 @@ void setup() {
 
 void loop() {
   Serial.println(sigma_sensor.distanceRead());
+  unsigned long currentMillis = millis();
 
- 
+if(sigma_sensor.distanceRead() <= 10){
+myservo.write(0);
 
- 
 
-if (sigma_sensor.distanceRead() <=10){
- myservo = 180;
- 
- 
+myservo.write(180);
 }
+
+
+else if (sigma_sensor.distanceRead() >=10){
+ myservo.write(90);
+ 
+
+}
+if(currentMillis = millis())
 
 
 }
